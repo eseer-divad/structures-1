@@ -100,22 +100,20 @@ char pStack::top() const {
   //-------------PQUEUE CLASS FUNCTIONS---------------->
   //--------------------------------------------------->
   //--------------------------------------------------->
-
+  
   //-----------------Constructor----------------->
-  pQueue::pQueue() {
-    f=nullptr; r=nullptr; qSize=0;
+  pQueue::pQueue(int x) {
+    queueArray = new char[x];
+    qSize = x;
+    f = -1;
+    r = -1;
+    numItems = 0;
   }
 
   //-----------------Destructor----------------->
   pQueue::~pQueue() {
-    char value;
-    while (!isEmpty()) { 
-      dequeue(value);
-    }
-    delete f;
-    f = nullptr;
-    delete r;
-    r = nullptr;
+    if(numItems > 0)
+      delete [] queueArray;
   }
   
   //-------------------------------------------->
@@ -126,19 +124,14 @@ char pStack::top() const {
   //-------------------------------------------->
   void pQueue::enqueue(char x) {
 
-    // allocate a new node and store item there
-    qNode *newNode = nullptr;
-    newNode = new qNode;
-    newNode->letter = x;
-    newNode->next = nullptr;
-
-    // Adjust as necessary.
-    if(isEmpty()) { f=newNode; r=newNode; }
-    else { r->next=newNode; r=newNode; }
-    qSize++;
-
+    if(numItems < qSize) {
+      queueArray[r] = x;
+      r = (r+1)%qSize;
+      numItems++;
+    }
+    else throw "The queue is full.\n"
   }
-   
+  
   //-------------------------------------------->
   //------------------Dequeue------------------->
   // Precons: a queue object.
@@ -146,17 +139,15 @@ char pStack::top() const {
   //-------------------------------------------->
   //-------------------------------------------->
   char pQueue::dequeue() {
-    qNode *node = nullptr;
     if (isEmpty()) { throw "The queue is empty!\n"; }
     else {
         // Save front, remove, and delete.
-        char x = f->letter;
-        node = f; f=f->next; delete node;
-        node->next = nullptr;
-        qSize--;
+        char x = queueArray[f];
+        f=(f+1)%qSize;
+        numItems--;
         return x;
     }
-  } 
+  }
 
   //-------------------------------------------->
   //-------------------Front-------------------->
@@ -165,7 +156,6 @@ char pStack::top() const {
   //-------------------------------------------->
   //-------------------------------------------->
   char pQueue::front() const {
-    qNode *temp = nullptr;
     if(isEmpty()) { throw "The queue is empty!\n"; }
-    else { return f->letter; }
+    else { return queueArray[f]; }
   }

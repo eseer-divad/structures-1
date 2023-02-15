@@ -7,11 +7,31 @@
 #include <string>
 
 class PalindromeI {
+  pQueue q;
+  pStack s;
 
 public:
   PalindromeI() {}
   int test_string(const std::string& s); 
 };
+
+class pStack {
+  struct pStackNode {
+    char letter;
+    pStackNode* next;
+  };
+  int stackSize;
+  pStackNode *topPtr;
+
+public:
+  pStack();
+  ~pStack();
+  void push(char);
+  char pop();
+  char top() const;
+  bool isEmpty() const { return (numItems == 0); }
+  int getSize() const { return qSize; }
+}
 
 class pQueue {
   char *queueArray;
