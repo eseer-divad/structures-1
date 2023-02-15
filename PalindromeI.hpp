@@ -6,13 +6,19 @@
 
 #include <string>
 
-class PalindromeI {
-  pQueue q;
-  pStack s;
+class pQueue {
+  char *queueArray;
+  int f, r, qSize, numItems;
 
 public:
-  PalindromeI() {}
-  int test_string(const std::string& s); 
+  pQueue();
+  pQueue(int x);
+  ~pQueue();
+  void enqueue(char);
+  char dequeue();
+  char front() const;
+  bool isEmpty() const { return (numItems == 0); }
+  int getSize() const { return qSize; }
 };
 
 class pStack {
@@ -29,22 +35,21 @@ public:
   void push(char);
   char pop();
   char top() const;
-  bool isEmpty() const { return (numItems == 0); }
-  int getSize() const { return qSize; }
-}
+  bool isEmpty() const { return (stackSize == 0); }
+  int getSize() const { return stackSize; }
+};
 
-class pQueue {
-  char *queueArray;
-  int f, r, qSize, numItems;
+class PalindromeI {
+  pQueue q;
+  pStack s;
 
 public:
-  pQueue();
-  ~pQueue();
-  void enqueue(char);
-  char dequeue();
-  char front() const;
-  bool isEmpty() const { return (numItems == 0); }
-  int getSize() const { return qSize; }
-}
+  PalindromeI() {}
+  int test_string(const std::string& s);
+};
+
+
+
+
 
 #endif

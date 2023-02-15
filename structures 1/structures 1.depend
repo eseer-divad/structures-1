@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1676491605 source:c:\users\dcr54\documents\github\structures-1\structures 1\main.cpp
+
+1676491877 source:c:\users\dcr54\documents\github\structures-1\palindromei.cpp
+	"PalindromeI.hpp"
+
+1676491870 c:\users\dcr54\documents\github\structures-1\palindromei.hpp
+	<string>
+

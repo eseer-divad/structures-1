@@ -6,24 +6,24 @@
 //--------------------------------------------------->
 //--------------------------------------------------->
 
-int test_string(const std::string& s) {
-  for(int i=0;i<s.size();i++) {
-    s.push(s[i]);
-    q.enqueue(s[i]);
+int PalindromeI::test_string(const std::string& str) {
+  for(int i=0;i<str.size();i++) {
+    s.push(str[i]);
+    q.enqueue(str[i]);
   }
-  int x = s.size();
-  if(s.size() % 2 == 1) {
+  int x = str.size();
+  if(str.size() % 2 == 1) {
     x--;
   }
-  for(int i=0;i<s.size()/2;i++) {
-    
+  for(int i=0;i<str.size()/2;i++) {
+
     if(isalpha(s.top()) && isalpha(q.front())) {
-      int x = s.pop()
+      int x = s.pop();
       int y = q.dequeue();
       if(x != y)
         return 0;
     }
-    else if(!isalpha(s.top()) {
+    else if(!isalpha(s.top())) {
       i--;
       s.pop();
     }
@@ -71,7 +71,7 @@ void pStack::push(char x) {
 
 /* pStack Class Pop Function
 Pre-Cons: An object of pStack. (LIFO)
-Post-Cons: -1 stacksize, 
+Post-Cons: -1 stacksize,
            & a char returned/removed off the top of the stack, */
 char pStack::pop() {
   pStackNode *temp = nullptr;
@@ -100,7 +100,7 @@ char pStack::top() const {
   //-------------PQUEUE CLASS FUNCTIONS---------------->
   //--------------------------------------------------->
   //--------------------------------------------------->
-  
+
   //-----------------Constructor----------------->
   pQueue::pQueue(int x) {
     queueArray = new char[x];
@@ -115,7 +115,7 @@ char pStack::top() const {
     if(numItems > 0)
       delete [] queueArray;
   }
-  
+
   //-------------------------------------------->
   //------------------Enqueue------------------->
   // Precons: a queue object, a char param.
@@ -129,9 +129,9 @@ char pStack::top() const {
       r = (r+1)%qSize;
       numItems++;
     }
-    else throw "The queue is full.\n"
+    else throw "The queue is full.\n";
   }
-  
+
   //-------------------------------------------->
   //------------------Dequeue------------------->
   // Precons: a queue object.
