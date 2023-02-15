@@ -5,6 +5,7 @@
 #include <cassert>
 #include <cstdlib>
 #include <iostream>
+#include <ctime>
 
 #include "PalindromeI.hpp"
 #include "PalindromeR.hpp"
@@ -25,7 +26,7 @@ std::string randPalindrome(const int len, const int& correct) {
 
 int main()
 {
-  // srand(time(0));
+  srand(time(0));
 
   // Iterative tests
   PalindromeI* p = new PalindromeI();
