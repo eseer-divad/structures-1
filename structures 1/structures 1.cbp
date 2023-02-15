@@ -32,6 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="../PalindromeI.cpp" />
+		<Unit filename="../PalindromeI.hpp" />
+		<Unit filename="../PalindromeR.hpp" />
+		<Unit filename="../makefile.txt" />
+		<Unit filename="../test_palindrome.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
