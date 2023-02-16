@@ -7,10 +7,12 @@
 #include <string>
 
 class PalindromeR {
+  int f, r;
 
 public:
   PalindromeR() {}
-  int test_string(const std::string& s); 
+  int test_string(const std::string& s);
+  bool palindromeRec(char str[], int f, int r)
 };
 
 #endif

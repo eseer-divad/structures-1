@@ -45,7 +45,7 @@ class PalindromeI {
 
 public:
   PalindromeI() {}
-  int test_string(const std::string& s);
+  int test_string(const std::string& str);
 };
 
 

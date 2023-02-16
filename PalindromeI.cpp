@@ -34,7 +34,7 @@ int PalindromeI::test_string(const std::string& str) {
     else { throw "error in palindrome check"; }
   }
   return -1;
-}
+};
 
 //--------------------------------------------------->
 //--------------------------------------------------->
