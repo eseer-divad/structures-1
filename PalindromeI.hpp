@@ -12,7 +12,6 @@ class pQueue {
 
 public:
   pQueue();
-  pQueue(int x);
   ~pQueue();
   void enqueue(char);
   char dequeue();

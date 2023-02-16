@@ -101,15 +101,6 @@ char pStack::top() const {
   //--------------------------------------------------->
   //--------------------------------------------------->
 
-  //-----------------Constructor----------------->
-  pQueue::pQueue(int x) {
-    queueArray = new char[x];
-    qSize = x;
-    f = -1;
-    r = -1;
-    numItems = 0;
-  }
-
   //-----------------Destructor----------------->
   pQueue::~pQueue() {
     if(numItems > 0)

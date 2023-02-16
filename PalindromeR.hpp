@@ -11,8 +11,9 @@ class PalindromeR {
 
 public:
   PalindromeR() {}
+  int palindromeRec(const std::string& str, int f, int r);
   int test_string(const std::string& s);
-  bool palindromeRec(char str[], int f, int r)
+
 };
 
 #endif
