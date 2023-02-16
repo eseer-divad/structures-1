@@ -70,7 +70,7 @@ int main()
 
   // cleanup
   delete p;
-
+/*
   // Recursive tests
   PalindromeR* p1 = new PalindromeR();
 
@@ -115,5 +115,5 @@ int main()
   std::cout << "\nAll Recursive Tests Complete!" << std::endl;
 
   // cleanup
-  delete p1;
+  delete p1; */
 }

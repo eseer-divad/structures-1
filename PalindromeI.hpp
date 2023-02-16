@@ -29,7 +29,7 @@ class pStack {
   pStackNode *topPtr;
 
 public:
-  pStack();
+  pStack() { topPtr = nullptr; }
   ~pStack();
   void push(char);
   char pop();
@@ -44,7 +44,8 @@ class PalindromeI {
 
 public:
   PalindromeI() {}
-  int test_string(const std::string& str);
+  int test_string(const char* str);
+  int test_string(const std::__cxx11::string str);
 };
 
 

@@ -6,7 +6,38 @@
 //--------------------------------------------------->
 //--------------------------------------------------->
 
-int PalindromeI::test_string(const std::string& str) {
+ int PalindromeI::test_string(const char* str) {
+  for(int i=0;i<sizeof(str);i++) {
+    s.push(str[i]);
+    q.enqueue(str[i]);
+  }
+  int x = sizeof(str);
+  if(sizeof(str) % 2 == 1) {
+    x--;
+  }
+  for(int i=0;i<sizeof(str)/2;i++) {
+
+    if(isalpha(s.top()) && isalpha(q.front())) {
+      int x = s.pop();
+      int y = q.dequeue();
+      if(x != y)
+        return 0;
+    }
+    else if(!isalpha(s.top())) {
+      i--;
+      s.pop();
+    }
+    else if(!isalpha(q.front())) {
+      i--;
+      q.dequeue();
+    }
+    else { throw "error in palindrome check"; }
+  }
+  return -1;
+};
+
+
+int PalindromeI::test_string(const std::__cxx11::string str) {
   for(int i=0;i<str.size();i++) {
     s.push(str[i]);
     q.enqueue(str[i]);
@@ -100,6 +131,11 @@ char pStack::top() const {
   //-------------PQUEUE CLASS FUNCTIONS---------------->
   //--------------------------------------------------->
   //--------------------------------------------------->
+
+  pQueue::pQueue() {
+      //fixed size = 30
+    queueArray = new char[30];
+  }
 
   //-----------------Destructor----------------->
   pQueue::~pQueue() {
